@@ -39,7 +39,7 @@ Le script effectuera alors les actions suivantes :
 - Récupération de l'adresse IP externe du service Node.js.
 - Affichage de la liste des pods et services créés.
 
-Une fois le déploiement terminé, vous pourrez accéder à l'application Prometheus/Grafana en utilisant l'adresse IP externe affichée, en ouvrant un navigateur web tel que Mozilla Firefox et en saisissant l’adresse IP récupérée.
+Une fois le déploiement terminé, vous pourrez accéder à l'application Prometheus/Grafana en utilisant l'adresse IP externe affichée, en ouvrant un navigateur web et en saisissant l’adresse IP récupérée.
 
 ### Configuration de la Source de Données Prometheus dans Grafana
 
@@ -71,7 +71,7 @@ Avant toute chose, assurez-vous d'avoir récupéré les adresses IP de Prometheu
 1. Construisez l'image Docker de l'application React avec la commande :
 
     ```bash
-    docker build -t my-react-app .
+    docker build -t react-app:2.0 .
     ```
 
 2. Connectez-vous à votre compte Docker Hub :
@@ -83,13 +83,13 @@ Avant toute chose, assurez-vous d'avoir récupéré les adresses IP de Prometheu
 3. Renommez votre image Docker avec votre nom d'utilisateur Docker Hub :
 
     ```bash
-    docker tag my-react-app <DOCKER_USERNAME>/my-react-app
+    docker tag react-app:2.0 <DOCKER_USERNAME>/react-app:2.0
     ```
 
 4. Publiez l'image sur Docker Hub :
 
     ```bash
-    docker push <DOCKER_USERNAME>/my-react-app
+    docker push <DOCKER_USERNAME>/react-app:2.0
     ```
 
 5. Mettez à jour l'image Docker utilisée dans la section `spec.containers.image` du fichier `react-deployment.yaml` avec l'image que vous venez de publier.
